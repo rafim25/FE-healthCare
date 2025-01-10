@@ -1,13 +1,13 @@
 // pages/PatientDashboard.jsx
+"use client";
 import React from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from "next/navigation";
 
-const PatientDashboard = () => {
+
+export default function Page() {
   const router = useRouter();
-
-  const handleLogout = () => {
-    // Logic for logging out the user
-    router.push('/login'); // Redirect to login page
+  const navigateTo = (path) => {
+    router.push(path);
   };
 
   return (
@@ -49,7 +49,7 @@ const PatientDashboard = () => {
         </div>
 
         <div className="flex justify-between mt-6">
-          <button className="bg-green-500 text-white p-2 rounded" onClick={() => router.push('/appointments')}>
+          <button className="bg-green-500 text-white p-2 rounded" onClick={() => navigateTo('/Appoinment')}>
             Book Appointment
           </button>
           <button className="bg-blue-500 text-white p-2 rounded" onClick={() => router.push('/health-records')}>
@@ -63,5 +63,3 @@ const PatientDashboard = () => {
     </div>
   );
 };
-
-export default PatientDashboard;

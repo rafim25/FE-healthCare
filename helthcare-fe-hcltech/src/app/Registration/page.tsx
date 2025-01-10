@@ -1,45 +1,46 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+"use client";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const PatientRegistrationForm = () => {
   const router = useRouter();
 
   // State for form fields
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    dob: '',
-    gender: '',
-    phoneNumber: '',
-    email: '',
+    firstName: "",
+    lastName: "",
+    dob: "",
+    gender: "",
+    phoneNumber: "",
+    email: "",
     currentAddress: {
-      street: '',
-      city: '',
-      state: '',
-      zip: ''
+      street: "",
+      city: "",
+      state: "",
+      zip: "",
     },
     permanentAddress: {
       sameAsCurrent: false,
-      street: '',
-      city: '',
-      state: '',
-      zip: ''
+      street: "",
+      city: "",
+      state: "",
+      zip: "",
     },
-    primaryHealthConcerns: '',
-    allergies: '',
-    bloodGroup: '',
-    existingConditions: '',
-    currentMedications: '',
+    primaryHealthConcerns: "",
+    allergies: "",
+    bloodGroup: "",
+    existingConditions: "",
+    currentMedications: "",
     emergencyContact: {
-      name: '',
-      relationship: '',
-      phoneNumber: ''
+      name: "",
+      relationship: "",
+      phoneNumber: "",
     },
     insurance: {
-      providerName: '',
-      policyNumber: '',
-      validityDate: ''
-    }
+      providerName: "",
+      policyNumber: "",
+      validityDate: "",
+    },
   });
 
   // Handle input changes
@@ -47,19 +48,19 @@ const PatientRegistrationForm = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleNestedChange = (section, key, value) => {
-    setFormData((prev) => ({
-      ...prev,
-      [section]: {
-        ...prev[section],
-        [key]: value
-      }
-    }));
-  };
+  // const handleNestedChange = (section, key, value) => {
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [section]: {
+  //       ...prev[section],
+  //       [key]: value,
+  //     },
+  //   }));
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,12 +68,17 @@ const PatientRegistrationForm = () => {
   };
 
   const handleRegisterClick = () => {
-    router.push('/register'); // Navigate to the register page
+    router.push("/register"); // Navigate to the register page
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full p-6 bg-white shadow-md rounded-lg space-y-4">
-      <h2 className="text-2xl font-bold mb-4 text-center">Patient Registration Form</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="w-full p-6 bg-white shadow-md rounded-lg space-y-4"
+    >
+      <h2 className="text-2xl font-bold mb-4 text-center">
+        Patient Registration Form
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -189,9 +195,25 @@ const PatientRegistrationForm = () => {
       </div>
 
       <div className="flex  md:flex-row space-x-0 md:space-x-2 mt-4">
-        <button type="submit" className="bg-green-500 text-white p-2 rounded hover:bg-green-600 flex-1">Save</button>
-        <button type="button" className="bg-red-500 text-white p-2 rounded hover:bg-red-600 flex-1 mt-2 md:mt-0">Reset</button>
-        <button type="button" className="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 flex-1 mt-2 md:mt-0" onClick={handleRegisterClick}>Back</button>
+        <button
+          type="submit"
+          className="bg-green-500 text-white p-2 rounded hover:bg-green-600 flex-1"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          className="bg-red-500 text-white p-2 rounded hover:bg-red-600 flex-1 mt-2 md:mt-0"
+        >
+          Reset
+        </button>
+        <button
+          type="button"
+          className="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 flex-1 mt-2 md:mt-0"
+          onClick={handleRegisterClick}
+        >
+          Back
+        </button>
       </div>
     </form>
   );
