@@ -4,7 +4,9 @@ import { useRouter } from "next/navigation";
 import Header from "../Components/Header";
 const PatientRegistrationForm = () => {
   const router = useRouter();
-
+  const navigateTo = (path) => {
+    router.push(path);
+  };
   // State for form fields
   const [formData, setFormData] = useState({
     firstName: "",
@@ -212,7 +214,7 @@ const PatientRegistrationForm = () => {
           <button
             type="button"
             className="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 flex-1 mt-2 md:mt-0"
-            onClick={handleRegisterClick}
+            onClick={() => navigateTo("/Dashboard")}
           >
             Back
           </button>
