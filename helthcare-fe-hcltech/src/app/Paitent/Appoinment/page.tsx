@@ -1,6 +1,6 @@
 "use client";
-import "../../style/Appoinment.css";
 import React, { useState } from "react";
+
 export default function Page() {
   const [formData, setFormData] = useState({
     doctor: "",
@@ -59,41 +59,42 @@ export default function Page() {
 
   return (
     <>
-      <div className="dashboard-header text-white">
+      <div className="bg-blue-600 text-white p-4 text-center">
         <h1>Bayer Healthcare</h1>
       </div>
-      <div className="main-container">
-        <aside className="sidebar">
+      <div className="flex flex-col md:flex-row">
+        <aside className="bg-gray-200 w-full md:w-1/4 p-4">
           <nav>
             <ul>
               <li>
-                <a href="#dashboard">Dashboard</a>
+                <a href="#dashboard" className="block py-2">Dashboard</a>
               </li>
               <li>
-                <a href="#patient-list">Patient List</a>
+                <a href="#patient-list" className="block py-2">Patient List</a>
               </li>
               <li>
-                <a href="#appointments">Appointments</a>
+                <a href="#appointments" className="block py-2">Appointments</a>
               </li>
               <li>
-                <a href="#messages">Messages</a>
+                <a href="#messages" className="block py-2">Messages</a>
               </li>
               <li>
-                <a href="#logout">Logout</a>
+                <a href="#logout" className="block py-2">Logout</a>
               </li>
             </ul>
           </nav>
         </aside>
-        <div className="content">
-          <h1>Book an Appointment</h1>
-          <form onSubmit={handleSubmit}>
+        <div className="content flex-1 p-4">
+          <h1 className="text-2xl mb-4">Book an Appointment</h1>
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="form-group">
-              <label htmlFor="doctor">Select Doctor</label>
+              <label htmlFor="doctor" className="block mb-1">Select Doctor</label>
               <select
                 name="doctor"
                 id="doctor"
                 value={formData.doctor}
                 onChange={handleInputChange}
+                className="border rounded p-2 w-full"
               >
                 <option value="">-- Select Doctor --</option>
                 {doctors.map((doctor, index) => (
@@ -102,62 +103,63 @@ export default function Page() {
                   </option>
                 ))}
               </select>
-              {errors.doctor && <p className="error">{errors.doctor}</p>}
+              {errors.doctor && <p className="text-red-500 text-sm">{errors.doctor}</p>}
             </div>
 
             <div className="form-group">
-              <label htmlFor="date">Select Date</label>
+              <label htmlFor="date" className="block mb-1">Select Date</label>
               <input
                 type="date"
                 name="date"
                 id="date"
                 value={formData.date}
                 onChange={handleInputChange}
+                className="border rounded p-2 w-full"
               />
-              {errors.date && <p className="error">{errors.date}</p>}
+              {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
             </div>
 
             <div className="form-group">
-              <label>Available Timeslots</label>
-              <div className="timeslot-buttons">
+              <label className="block mb-1">Available Timeslots</label>
+              <div className="flex flex-wrap">
                 {timeslots.map((slot, index) => (
                   <button
                     type="button"
                     key={index}
-                    className={`timeslot-button ${
-                      formData.timeslots.includes(slot) ? "selected" : ""
-                    }`}
+                    className={`border rounded p-2 m-1 ${formData.timeslots.includes(slot) ? "bg-blue-500 text-white" : "bg-gray-200"}`}
                     onClick={() => handleTimeslotToggle(slot)}
                   >
                     {slot}
                   </button>
                 ))}
               </div>
-              {errors.timeslots && <p className="error">{errors.timeslots}</p>}
+              {errors.timeslots && <p className="text-red-500 text-sm">{errors.timeslots}</p>}
             </div>
 
             <div className="form-group">
-              <label htmlFor="reason">Reason for Visit</label>
+              <label htmlFor="reason" className="block mb-1">Reason for Visit</label>
               <textarea
                 name="reason"
                 id="reason"
                 value={formData.reason}
                 onChange={handleInputChange}
+                className="border rounded p-2 w-full"
               ></textarea>
-              {errors.reason && <p className="error">{errors.reason}</p>}
+              {errors.reason && <p className="text-red-500 text-sm">{errors.reason}</p>}
             </div>
 
             <div className="form-group">
-              <label htmlFor="notes">Additional Notes (Optional)</label>
+              <label htmlFor="notes" className="block mb-1">Additional Notes (Optional)</label>
               <textarea
                 name="notes"
                 id="notes"
                 value={formData.notes}
                 onChange={handleInputChange}
+                className="border rounded p-2 w-full"
               ></textarea>
             </div>
 
-            <button type="submit" className="submit-button">
+            <button type="submit" className="bg-blue-600 text-white rounded p-2 w-full">
               Book Appointment
             </button>
           </form>

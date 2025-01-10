@@ -77,7 +77,7 @@ const PatientRegistrationForm = () => {
       className="w-full p-6 bg-white shadow-md rounded-lg space-y-4"
     >
       <h2 className="text-2xl font-bold mb-4 text-center">
-        Patient Registration Form
+        User Registration Form
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
