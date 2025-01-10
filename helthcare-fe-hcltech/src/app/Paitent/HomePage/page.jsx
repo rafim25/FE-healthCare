@@ -2,7 +2,7 @@
 "use client";
 import React from 'react';
 import { useRouter } from "next/navigation";
-
+import Header from '../../Components/Header';
 
 export default function Page() {
   const router = useRouter();
@@ -11,6 +11,8 @@ export default function Page() {
   };
 
   return (
+    <>
+    <Header/>
     <div className="flex flex-col md:flex-row">
       <aside className="bg-blue-500 text-white w-full md:w-1/4 p-4 ">
         <h2 className="text-lg font-bold">Bayer Health</h2>
@@ -61,5 +63,7 @@ export default function Page() {
         </div>
       </main>
     </div>
-  );
+
+    </>
+      );
 };

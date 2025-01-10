@@ -1,8 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import Header from "../../Components/Header";
-
+import { useRouter } from "next/navigation";
+import "../../style/Appoinment.css";
 export default function Page() {
+  const router = useRouter();
+  const navigateTo = (path) => {
+    router.push(path);
+  };
   const [formData, setFormData] = useState({
     doctor: "",
     date: "",
@@ -65,20 +70,20 @@ export default function Page() {
         <aside className="sidebar">
           <nav>
             <ul>
-              <li>
-                <a href="#dashboard" className="block py-2">Dashboard</a>
+              <li onClick={() => navigateTo("/Paitent/HomePage")}>
+                <p className="block py-2 ">Dashboard</p>
               </li>
               <li>
-                <a href="#patient-list" className="block py-2">Patient List</a>
+                <p className="block py-2">Patient List</p>
               </li>
               <li>
-                <a href="#appointments" className="block py-2">Appointments</a>
+                <p className="block py-2">Appointments</p>
               </li>
               <li>
-                <a href="#messages" className="block py-2">Messages</a>
+                <p className="block py-2">Messages</p>
               </li>
               <li>
-                <a href="#logout" className="block py-2">Logout</a>
+                <p className="block py-2">Logout</p>
               </li>
             </ul>
           </nav>
@@ -87,7 +92,9 @@ export default function Page() {
           <h1 className="text-2xl mb-4">Book an Appointment</h1>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="form-group">
-              <label htmlFor="doctor" className="block mb-1">Select Doctor</label>
+              <label htmlFor="doctor" className="block mb-1">
+                Select Doctor
+              </label>
               <select
                 name="doctor"
                 id="doctor"
@@ -102,11 +109,15 @@ export default function Page() {
                   </option>
                 ))}
               </select>
-              {errors.doctor && <p className="text-red-500 text-sm">{errors.doctor}</p>}
+              {errors.doctor && (
+                <p className="text-red-500 text-sm">{errors.doctor}</p>
+              )}
             </div>
 
             <div className="form-group">
-              <label htmlFor="date" className="block mb-1">Select Date</label>
+              <label htmlFor="date" className="block mb-1">
+                Select Date
+              </label>
               <input
                 type="date"
                 name="date"
@@ -115,7 +126,9 @@ export default function Page() {
                 onChange={handleInputChange}
                 className="border rounded p-2 w-full"
               />
-              {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
+              {errors.date && (
+                <p className="text-red-500 text-sm">{errors.date}</p>
+              )}
             </div>
 
             <div className="form-group">
@@ -125,18 +138,26 @@ export default function Page() {
                   <button
                     type="button"
                     key={index}
-                    className={`border rounded p-2 m-1 ${formData.timeslots.includes(slot) ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+                    className={`border rounded p-2 m-1 ${
+                      formData.timeslots.includes(slot)
+                        ? "bg-blue-500 text-white"
+                        : "bg-gray-200"
+                    }`}
                     onClick={() => handleTimeslotToggle(slot)}
                   >
                     {slot}
                   </button>
                 ))}
               </div>
-              {errors.timeslots && <p className="text-red-500 text-sm">{errors.timeslots}</p>}
+              {errors.timeslots && (
+                <p className="text-red-500 text-sm">{errors.timeslots}</p>
+              )}
             </div>
 
             <div className="form-group">
-              <label htmlFor="reason" className="block mb-1">Reason for Visit</label>
+              <label htmlFor="reason" className="block mb-1">
+                Reason for Visit
+              </label>
               <textarea
                 name="reason"
                 id="reason"
@@ -144,11 +165,15 @@ export default function Page() {
                 onChange={handleInputChange}
                 className="border rounded p-2 w-full"
               ></textarea>
-              {errors.reason && <p className="text-red-500 text-sm">{errors.reason}</p>}
+              {errors.reason && (
+                <p className="text-red-500 text-sm">{errors.reason}</p>
+              )}
             </div>
 
             <div className="form-group">
-              <label htmlFor="notes" className="block mb-1">Additional Notes (Optional)</label>
+              <label htmlFor="notes" className="block mb-1">
+                Additional Notes (Optional)
+              </label>
               <textarea
                 name="notes"
                 id="notes"
@@ -158,7 +183,10 @@ export default function Page() {
               ></textarea>
             </div>
 
-            <button type="submit" className="bg-blue-600 text-white rounded p-2 w-full">
+            <button
+              type="submit"
+              className="bg-blue-600 text-white rounded p-2 w-full"
+            >
               Book Appointment
             </button>
           </form>

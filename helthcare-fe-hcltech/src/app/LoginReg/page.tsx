@@ -8,6 +8,7 @@ export default function Page() {
   };
   const LoginSubmit = () => {
     navigateTo("/Paitent/HomePage");
+    //  navigateTo("/Doctor/Dashboard");
   };
   return (
     <>

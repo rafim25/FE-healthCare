@@ -7,6 +7,7 @@
   background: #f4f4f4;
   padding: 1rem;
   border-right: 1px solid #ddd;
+  background-color: #007bff;
 }
 
 .sidebar nav ul {
@@ -18,9 +19,9 @@
   margin: 1rem 0;
 }
 
-.sidebar nav ul li a {
+.sidebar nav ul li p {
   text-decoration: none;
-  color: #007bff;
+  color: #fff;
 }
 
 .sidebar nav ul li a:hover {
