@@ -18,7 +18,7 @@ export default function Page() {
         <h2 className="text-lg font-bold">Bayer Health</h2>
         <nav className="mt-4">
           <ul>
-            <li><a href="/dashboard" className="block py-2">Dashboard</a></li>
+            <li><a onClick={()=> navigateTo('/Paitent/Dashboard')} className="block py-2">Dashboard</a></li>
             <li><a href="/profile" className="block py-2">My Profile</a></li>
             <li><a href="/appointments" className="block py-2">Appointments</a></li>
             <li><a href="/health-records" className="block py-2">Health Records</a></li>

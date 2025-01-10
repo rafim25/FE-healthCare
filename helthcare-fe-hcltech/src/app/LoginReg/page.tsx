@@ -1,15 +1,20 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Header from "../Components/Header";
+import { useState } from "react";
 export default function Page() {
   const router = useRouter();
   const navigateTo = (path) => {
     router.push(path);
   };
   const LoginSubmit = () => {
-    navigateTo("/Paitent/HomePage");
-    //  navigateTo("/Doctor/Dashboard");
+    if (userstate === "paitent") {
+      navigateTo("/Paitent/HomePage");
+    } else if (userstate === "Doctor") {
+      navigateTo("/Doctor/Dashboard");
+    }
   };
+  const [userstate, setState] = useState("paitent");
   return (
     <>
       <Header />
@@ -38,6 +43,14 @@ export default function Page() {
                 placeholder="Password"
                 className="w-full p-2 border border-gray-300 rounded"
                 required
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="userState">Are you Doctor</label>
+              <input
+                type="checkbox"
+                name="userState"
+                onChange={() => setState("Doctor")}
               />
             </div>
             <button
