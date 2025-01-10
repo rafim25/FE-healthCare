@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Header from "../../Components/Header";
 import { useRouter } from "next/navigation";
-import "../../style/Appoinment.css";
+
 export default function Page() {
   const router = useRouter();
   const navigateTo = (path) => {
@@ -66,25 +66,17 @@ export default function Page() {
   return (
     <>
       <Header />
-      <div className="main-container">
-        <aside className="sidebar">
+      <div className="flex flex-col md:flex-row">
+        <aside className="bg-gray-200 w-full md:w-1/4 p-4">
           <nav>
-            <ul>
-              <li onClick={() => navigateTo("/Paitent/HomePage")}>
-                <p className="block py-2 ">Dashboard</p>
+            <ul className="space-y-2">
+              <li onClick={() => navigateTo("/Paitent/HomePage")} className="cursor-pointer hover:text-blue-600">
+                Dashboard
               </li>
-              <li>
-                <p className="block py-2">Patient List</p>
-              </li>
-              <li>
-                <p className="block py-2">Appointments</p>
-              </li>
-              <li>
-                <p className="block py-2">Messages</p>
-              </li>
-              <li>
-                <p className="block py-2">Logout</p>
-              </li>
+              <li className="cursor-pointer hover:text-blue-600">Patient List</li>
+              <li className="cursor-pointer hover:text-blue-600">Appointments</li>
+              <li className="cursor-pointer hover:text-blue-600">Messages</li>
+              <li className="cursor-pointer hover:text-blue-600">Logout</li>
             </ul>
           </nav>
         </aside>
@@ -138,11 +130,10 @@ export default function Page() {
                   <button
                     type="button"
                     key={index}
-                    className={`border rounded p-2 m-1 ${
-                      formData.timeslots.includes(slot)
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200"
-                    }`}
+                    className={`border rounded p-2 m-1 ${formData.timeslots.includes(slot)
+                      ? "bg-blue-500 text-white"
+                      : "bg-gray-200"
+                      }`}
                     onClick={() => handleTimeslotToggle(slot)}
                   >
                     {slot}
