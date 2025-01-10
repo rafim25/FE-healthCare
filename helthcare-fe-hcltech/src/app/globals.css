@@ -13,9 +13,80 @@
     --foreground: #ededed;
   }
 }
+h1 {
+  font-weight: 600;
+  font-size: 24px;
+}
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Dashboard css */
+.dashboard {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #171717;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  cursor: pointer;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin: 0.5rem 0;
+  color: #007bff;
+}
+
+.card p {
+  color: #555;
+}
+.dashboard-header {
+  margin-top: 1rem;
+  background-color: gray;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  height: 10rem;
+  justify-content: center;
+  padding-top: 3rem;
+}
+.dashboard-header p {
+  align-content: flex-start;
+  margin-left: 1rem;
+}
+.featured-header {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
