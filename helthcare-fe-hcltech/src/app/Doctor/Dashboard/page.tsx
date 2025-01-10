@@ -1,7 +1,7 @@
 "use client";
 import "../../style/doctorDashboard.css";
 import { useRouter } from "next/navigation";
-
+import Header from "@/app/Components/Header";
 export default function Page() {
   const router = useRouter();
   const navigateTo = (path) => {
@@ -52,6 +52,7 @@ export default function Page() {
 
   return (
     <>
+      <Header />
       <div className="dashboard-container">
         <aside className="sidebar">
           <nav>

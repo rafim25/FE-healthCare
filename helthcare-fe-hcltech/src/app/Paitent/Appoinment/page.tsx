@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Header from "../../Components/Header";
 
 export default function Page() {
   const [formData, setFormData] = useState({
@@ -59,11 +60,9 @@ export default function Page() {
 
   return (
     <>
-      <div className="bg-blue-600 text-white p-4 text-center">
-        <h1>Bayer Healthcare</h1>
-      </div>
-      <div className="flex flex-col md:flex-row">
-        <aside className="bg-gray-200 w-full md:w-1/4 p-4">
+      <Header />
+      <div className="main-container">
+        <aside className="sidebar">
           <nav>
             <ul>
               <li>

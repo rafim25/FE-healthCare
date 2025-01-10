@@ -21,7 +21,7 @@ export default function Page() {
             <li><a href="/appointments" className="block py-2">Appointments</a></li>
             <li><a href="/health-records" className="block py-2">Health Records</a></li>
             <li><a href="/messages" className="block py-2">Messages</a></li>
-            <li><button onClick={handleLogout} className="block py-2">Logout</button></li>
+            <li><button  className="block py-2">Logout</button></li>
           </ul>
         </nav>
       </aside>
@@ -49,7 +49,7 @@ export default function Page() {
         </div>
 
         <div className="flex justify-between mt-6">
-          <button className="bg-green-500 text-white p-2 rounded" onClick={() => navigateTo('/Appoinment')}>
+          <button className="bg-green-500 text-white p-2 rounded" onClick={() => navigateTo('/Paitent/Appoinment')}>
             Book Appointment
           </button>
           <button className="bg-blue-500 text-white p-2 rounded" onClick={() => router.push('/health-records')}>

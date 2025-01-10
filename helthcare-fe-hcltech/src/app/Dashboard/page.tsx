@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Header from "../Components/Header";
 
 export default function Page() {
   const router = useRouter();
@@ -32,9 +33,7 @@ export default function Page() {
   return (
     <>
       <div className="dashboard">
-        <div className="dashboard-header">
-          <h1>Bayer Healthcare</h1>
-        </div>
+        <Header />
         <nav className="navbar">
           <ul>
             <li>Home</li>

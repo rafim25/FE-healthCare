@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Header from "../Components/Header";
 export default function Page() {
   const router = useRouter();
   const navigateTo = (path) => {
@@ -10,6 +11,7 @@ export default function Page() {
   };
   return (
     <>
+      <Header />
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="bg-white p-8 rounded-lg shadow-md w-96">
           <img
@@ -20,7 +22,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-center text-blue-600">
             Login
           </h2>
-          <form className="mt-4">
+          <form className="mt-4" action={() => LoginSubmit()}>
             <div className="mb-4">
               <input
                 type="email"
@@ -38,7 +40,7 @@ export default function Page() {
               />
             </div>
             <button
-              onSubmit={() => LoginSubmit()}
+              type="submit"
               className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
             >
               Login
