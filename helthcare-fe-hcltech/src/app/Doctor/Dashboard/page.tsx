@@ -2,7 +2,7 @@
 import "../../style/doctorDashboard.css";
 import { useRouter } from "next/navigation";
 
-export default function page() {
+export default function Page() {
   const router = useRouter();
   const navigateTo = (path) => {
     router.push(path);
